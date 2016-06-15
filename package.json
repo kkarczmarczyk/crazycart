@@ -1,0 +1,25 @@
+{
+  "name": "crazycart",
+  "version": "1.0.0",
+  "description": "Razor Crazy Cart timelapse measuring tool with live leaderboard",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkarczmarczyk/crazycart.git"
+  },
+  "engines": {
+    "node": "6.0.0"
+  },
+  "keywords": [
+    "crazycart"
+  ],
+  "author": "Kamil Karczmarczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kkarczmarczyk/crazycart/issues"
+  },
+  "homepage": "https://github.com/kkarczmarczyk/crazycart#readme"
+}
