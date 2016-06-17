@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/kkarczmarczyk/crazycart/issues"
   },
-  "homepage": "https://github.com/kkarczmarczyk/crazycart#readme"
+  "homepage": "https://github.com/kkarczmarczyk/crazycart#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "firebase": "^3.0.5"
+  }
 }
