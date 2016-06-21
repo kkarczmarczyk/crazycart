@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Crazy Cart live leaderboard</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Races <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">New Race</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Race1 (2016-05-18 14:32:21)</a></li>
+                        <li><a href="#">Race2 (2016-06-03 08:00:00)</a></li>
+                        <li><a href="#">Race3 (2016-06-19 22:32:08)</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Github</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Live data</div>
+                <div class="panel-body">
+                    <p>Player: <strong>Kamil</strong></p>
+                    <p class="text-info">Current Lap: <strong>3</strong></p>
+                    <p class="text-success">Lap Time: <strong>0:12.213s</strong></p>
+                    <p class="text-success">Best Lap: <strong>0:19.233s</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Race: <strong>Race1 (2016-05-18 14:32:21) </strong></div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Player Name</th>
+                                <th>Best Lap</th>
+                                <th>Avg Lap Time</th>
+                                <th>Laps</th>
+                                <th>Total Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Kamil</td>
+                                <td>0:19.324s</td>
+                                <td>0:21.390s</td>
+                                <td>6</td>
+                                <td>1:23.439s</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

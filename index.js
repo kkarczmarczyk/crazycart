@@ -28,11 +28,11 @@ app.use('/api', function(req, res, next) {
     }
 });
 
-//app.use(express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
-app.get('/', function(req, res) {
-    res.end('working!');
-});
+// app.get('/', function(req, res) {
+//     res.end('working!');
+// });
 
 app.get('/api', function(req, res) {
     res.json(live);
