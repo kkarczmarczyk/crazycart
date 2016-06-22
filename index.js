@@ -44,7 +44,7 @@ app.get('/api/lap', function(req, res) {
         if(live.status == "stop") {
             firebase.database().ref('/live/status/').set("run");
         } else {
-            firebase.database().ref('/race/' + live.race + '/' + live.user + '/').push(req.query.ms);
+            firebase.database().ref('/race/' + live.race + '/players/' + live.user + '/').push(req.query.ms);
         }
 
     }
