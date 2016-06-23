@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase.js"></script>
@@ -21,7 +22,7 @@
         firebase.initializeApp(config);
     </script>
 </head>
-<body ng-controller="LeaderboardController as leaderboard">
+<body ng-controller="LeaderboardController as lbCtrl">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -40,9 +41,9 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">New Race</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Race1 (2016-05-18 14:32:21)</a></li>
-                        <li><a href="#">Race2 (2016-06-03 08:00:00)</a></li>
-                        <li><a href="#">Race3 (2016-06-19 22:32:08)</a></li>
+                        <li ng-repeat="(race, date) in races">
+                            <a href="#">{{ race }} ({{ date }})</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -52,9 +53,10 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">New Player</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Kamil</a></li>
-                        <li><a href="#">Tomek</a></li>
-                        <li><a href="#">Michal</a></li>
+                        <li ng-repeat="player in players">
+                            <a href="#">{{ player }}</a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -93,13 +95,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr ng-repeat="(playerName, scores) in leaderboard[live.race]">
                                 <td>1</td>
-                                <td>Kamil</td>
-                                <td>0:19.324s</td>
-                                <td>0:21.390s</td>
-                                <td>6</td>
-                                <td>1:23.439s</td>
+                                <td>{{ playerName }}</td>
+                                <td>{{ scoresBest(scores) }}</td>
+                                <td>{{ scoresAvg(scores) }}</td>
+                                <td>{{ scoresLen(scores) }}</td>
+                                <td>{{ scoresTotal(scores) }}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -40,11 +40,11 @@ app.get('/api', function(req, res) {
 
 app.get('/api/lap', function(req, res) {
     res.end();
-    if(req.query.ms && live.race && live.user && live.status) {
+    if(req.query.ms && live.race && live.player && live.status) {
         if(live.status == "stop") {
             firebase.database().ref('/live/status/').set("run");
         } else {
-            firebase.database().ref('/race/' + live.race + '/players/' + live.user + '/').push(req.query.ms);
+            firebase.database().ref('/race/' + live.race + '/players/' + live.player + '/').push(req.query.ms);
         }
 
     }
