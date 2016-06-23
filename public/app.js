@@ -1,12 +1,23 @@
 (function() {
-    var app = angular.module('leaderboardScore', ["firebase"]);
+    var app = angular.module('leaderboardScore', ["firebase", "datatables", "datatables.bootstrap"]);
 
-    app.controller("LeaderboardController", function($scope, $firebaseObject) {
+    app.controller("LeaderboardController", function($scope, $firebaseObject, DTOptionsBuilder, DTColumnDefBuilder) {
         var ref = firebase.database().ref();
         $scope.live = $firebaseObject(ref.child("live"));
         $scope.players = $firebaseObject(ref.child("players"));
         $scope.races = $firebaseObject(ref.child("races"));
         $scope.leaderboard = $firebaseObject(ref.child("leaderboard"));
+
+        // $scope.leaderboard.$watch(function() {
+        //     Sortable.initTable(document.querySelector('#lead'));
+        // });
+
+        this.dtOptions = DTOptionsBuilder.newOptions()
+            .withOption('paging', false)
+            .withOption('searching', false)
+            .withOption('info', false)
+            .withOption('order', [2, "asc"])
+            .withBootstrap();
 
         $scope.scoresLen = function(scores) {
             return _.keys(scores).length;

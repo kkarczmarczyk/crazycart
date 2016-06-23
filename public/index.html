@@ -2,12 +2,18 @@
 <html ng-app="leaderboardScore" >
 <head>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/angular-datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/datatables.bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="jslibs/angular-datatables.min.js"></script>
+    <script src="jslibs/angular-datatables.bootstrap.min.js"></script>
+
     <script type="text/javascript" src="app.js"></script>
     <script>
         // Initialize Firebase
@@ -20,6 +26,7 @@
             storageBucket: "project-979611318308473915.appspot.com"
         };
         firebase.initializeApp(config);
+
     </script>
 </head>
 <body ng-controller="LeaderboardController as lbCtrl">
@@ -83,7 +90,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Race: <strong>Race1 (2016-05-18 14:32:21) </strong></div>
                 <div class="panel-body">
-                    <table class="table table-hover">
+                    <table id="lead" class="table table-hover" datatable="ng" dt-options="lbCtrl.dtOptions" dt-column-defs="lbCtrl.dtColumnDefs">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -95,8 +102,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="(playerName, scores) in leaderboard[live.race]">
-                                <td>1</td>
+                            <tr ng-class="{ warning:playerName==live.player }" ng-repeat="(playerName, scores) in leaderboard[live.race]">
+                                <td>{{ $index+1 }}</td>
                                 <td>{{ playerName }}</td>
                                 <td>{{ scoresBest(scores) }}</td>
                                 <td>{{ scoresAvg(scores) }}</td>
